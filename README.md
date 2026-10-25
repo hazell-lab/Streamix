@@ -1,4 +1,4 @@
-# Streamix 🎬
+# Streamix
 
 A cinematic, Netflix-inspired streaming UI built with **React, Vite and Tailwind CSS**, powered by real data from the **TMDB API**. Browse trending titles, watch trailers, search, filter by genre and keep a personal watch list that survives page refreshes.
 
