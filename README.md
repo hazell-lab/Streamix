@@ -1,6 +1,6 @@
 # Streamix
 
-A cinematic, Netflix-inspired streaming UI built with **React, Vite and Tailwind CSS**, powered by real data from the **TMDB API**. Browse trending titles, watch trailers, search, filter by genre and keep a personal watch list that survives page refreshes.
+A cinematic, Netflix-inspired streaming UI built with **React, TypeScript, Vite and Tailwind CSS**, powered by real data from the **TMDB API**. Browse trending titles, watch trailers, search, filter by genre and keep a personal watch list that survives page refreshes.
 
 > Streamix is a front-end portfolio project. It is not affiliated with Netflix, and it does not host or stream any videos (trailers are embedded from YouTube).
 
@@ -28,7 +28,7 @@ A cinematic, Netflix-inspired streaming UI built with **React, Vite and Tailwind
 | Tool | Purpose |
 | --- | --- |
 | React 18 + Vite | UI and dev tooling |
-| JavaScript (ES2022) | Language |
+| TypeScript (strict mode) | Language and type checking |
 | Tailwind CSS 3 | Styling |
 | React Router 7 | Routing |
 | Axios | HTTP client |
@@ -36,7 +36,7 @@ A cinematic, Netflix-inspired streaming UI built with **React, Vite and Tailwind
 | Lucide React | Icons |
 | LocalStorage | My List + Recently Viewed |
 | ESLint 9 | Linting (React + Hooks rules) |
-| Node test runner | Unit tests for helper functions |
+| Vitest | Unit tests for helper functions |
 
 ## Installation
 
@@ -59,7 +59,7 @@ npm install
    VITE_TMDB_API_KEY=your_key_here
    ```
 
-The key is read only in `src/services/tmdb.js`, never inside components. `.env` is git-ignored.
+The key is read only in `src/services/tmdb.ts`, never inside components. `.env` is git-ignored.
 
 ### TMDB API setup
 
@@ -73,10 +73,11 @@ The key is read only in `src/services/tmdb.js`, never inside components. `.env` 
 
 ```bash
 npm run dev       # start the dev server (http://localhost:5173)
-npm run build     # production build in /dist
+npm run build     # type-check, then production build in /dist
 npm run preview   # preview the production build
+npm run typecheck # check types with the TypeScript compiler
 npm run lint      # check the code with ESLint
-npm test          # run the unit tests in tests/
+npm test          # run the unit tests in tests/ (Vitest)
 ```
 
 Restart `npm run dev` after editing `.env`.
@@ -85,7 +86,7 @@ Restart `npm run dev` after editing `.env`.
 
 ```
 Streamix/
-├── docs/                    # README screenshot
+├── docs/                    # README screenshot + TypeScript notes
 ├── public/                  # favicon + SPA redirect files (Netlify / Vercel)
 ├── src/
 │   ├── assets/              # placeholder image used as a fallback
@@ -94,15 +95,17 @@ Streamix/
 │   ├── context/             # MyList, RecentlyViewed, Toast and Trailer providers
 │   ├── hooks/               # useFetch, useDebounce, useLocalStorage, useDiscover, ...
 │   ├── pages/               # Home, Movies, TVShows, Details, Search, MyList, NotFound
-│   ├── services/tmdb.js     # every TMDB request lives here
-│   ├── utils/helpers.js     # image URLs, formatting, small pure functions
-│   ├── App.jsx              # layout + routes
-│   └── main.jsx             # providers + router
-├── tests/                   # unit tests (Node's built-in test runner)
+│   ├── services/tmdb.ts     # every TMDB request lives here
+│   ├── types/tmdb.ts        # shared types: MediaItem, MediaDetails, ListItem, ...
+│   ├── utils/helpers.ts     # image URLs, formatting, small pure functions
+│   ├── App.tsx              # layout + routes
+│   └── main.tsx             # providers + router
+├── tests/                   # unit tests (Vitest)
 ├── .env.example
 ├── eslint.config.js
 ├── tailwind.config.js
-└── vite.config.js
+├── tsconfig.json            # strict TypeScript settings
+└── vite.config.ts
 ```
 
 ## Deploying
@@ -119,6 +122,7 @@ Streamix/
 - Routing with React Router: dynamic params, query strings, 404 pages, scroll restoration, lazy-loaded routes
 - Centralising API calls with Axios, friendly error messages, and a tiny request cache
 - Building responsive, accessible UI with Tailwind (focus states, ARIA labels, keyboard support, focus trapping, reduced motion)
+- Migrating a React codebase from JavaScript to strict TypeScript: typed props, generic hooks, typed context and type guards for API and LocalStorage data ([notes](docs/TYPESCRIPT.md))
 - Linting with ESLint and writing unit tests for pure functions
 - Loading, empty and error states for every async view
 
@@ -129,7 +133,6 @@ Streamix/
 - Actor pages and "watch providers" info
 - Component tests (Vitest + React Testing Library)
 - Keyboard navigation inside carousels
-- TypeScript migration
 - PWA / offline support
 
 ## Credits
