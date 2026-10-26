@@ -21,7 +21,7 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="border-t border-white/5 py-5 text-center text-xs text-white/40">
+      <div className="border-t border-white/5 py-5 text-center text-xs text-white/60">
         <p className="page-x">
           This product uses the TMDB API but is not endorsed or certified by TMDB. Movie data and images ©{' '}
           <a
