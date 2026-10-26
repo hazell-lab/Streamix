@@ -1,12 +1,12 @@
-# Streamix 🎬
+# Streamix
 
 A cinematic, Netflix-inspired streaming UI built with **React, Vite and Tailwind CSS**, powered by real data from the **TMDB API**. Browse trending titles, watch trailers, search, filter by genre and keep a personal watch list that survives page refreshes.
 
 > Streamix is a front-end portfolio project. It is not affiliated with Netflix, and it does not host or stream any videos (trailers are embedded from YouTube).
 
-<!-- TODO: add a screenshot, e.g. save one as docs/screenshot-home.png and uncomment:
-![Streamix home page](./docs/screenshot-home.png)
--->
+**[🔗 Live Demo](https://streamix-hazim.netlify.app/)** · [Source code](https://github.com/hazell-lab/Streamix) · [Portfolio](https://hazimaqil-portfolio.netlify.app)
+
+![Streamix home page](docs/screenshot.png)
 
 ## Features
 
@@ -43,8 +43,8 @@ A cinematic, Netflix-inspired streaming UI built with **React, Vite and Tailwind
 Requires **Node.js 20.19 or newer**.
 
 ```bash
-git clone <your-repo-url> streamix
-cd streamix
+git clone https://github.com/hazell-lab/Streamix.git
+cd Streamix
 npm install
 ```
 
@@ -84,7 +84,8 @@ Restart `npm run dev` after editing `.env`.
 ## Project structure
 
 ```
-streamix/
+Streamix/
+├── docs/                    # README screenshot
 ├── public/                  # favicon + SPA redirect files (Netlify / Vercel)
 ├── src/
 │   ├── assets/              # placeholder image used as a fallback
@@ -134,3 +135,11 @@ streamix/
 ## Credits
 
 This product uses the TMDB API but is not endorsed or certified by TMDB. Movie data and images are provided by [The Movie Database](https://www.themoviedb.org).
+
+## Author
+
+Built by **Hazim Aqil**, Software Engineering student at the German-Malaysian Institute (GMI).
+
+- Portfolio: [hazimaqil-portfolio.netlify.app](https://hazimaqil-portfolio.netlify.app)
+- GitHub: [@hazell-lab](https://github.com/hazell-lab)
+- LinkedIn: [mdhazimaqil](https://www.linkedin.com/in/mdhazimaqil/)
