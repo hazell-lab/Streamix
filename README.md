@@ -36,7 +36,7 @@ A cinematic, Netflix-inspired streaming UI built with **React, TypeScript, Vite 
 | Lucide React | Icons |
 | LocalStorage | My List + Recently Viewed |
 | ESLint 9 | Linting (React + Hooks rules) |
-| Vitest | Unit tests for helper functions |
+| Vitest + React Testing Library | Unit, hook and component tests (34 tests) |
 
 ## Installation
 
@@ -77,7 +77,8 @@ npm run build     # type-check, then production build in /dist
 npm run preview   # preview the production build
 npm run typecheck # check types with the TypeScript compiler
 npm run lint      # check the code with ESLint
-npm test          # run the unit tests in tests/ (Vitest)
+npm test          # run all tests once (Vitest)
+npm run test:watch # re-run tests on every save
 ```
 
 Restart `npm run dev` after editing `.env`.
@@ -100,7 +101,7 @@ Streamix/
 │   ├── utils/helpers.ts     # image URLs, formatting, small pure functions
 │   ├── App.tsx              # layout + routes
 │   └── main.tsx             # providers + router
-├── tests/                   # unit tests (Vitest)
+├── tests/                   # Vitest tests: helpers, hooks and components
 ├── .env.example
 ├── eslint.config.js
 ├── tailwind.config.js
@@ -123,6 +124,7 @@ Streamix/
 - Centralising API calls with Axios, friendly error messages, and a tiny request cache
 - Building responsive, accessible UI with Tailwind (focus states, ARIA labels, keyboard support, focus trapping, reduced motion)
 - Migrating a React codebase from JavaScript to strict TypeScript: typed props, generic hooks, typed context and type guards for API and LocalStorage data ([notes](docs/TYPESCRIPT.md))
+- Testing React components and hooks the way users interact with them (React Testing Library, user-event, mocked API calls) ([notes](docs/TESTING.md))
 - Linting with ESLint and writing unit tests for pure functions
 - Loading, empty and error states for every async view
 
@@ -131,7 +133,6 @@ Streamix/
 - User accounts and cloud-synced lists
 - Infinite scroll instead of "Load more"
 - Actor pages and "watch providers" info
-- Component tests (Vitest + React Testing Library)
 - Keyboard navigation inside carousels
 - PWA / offline support
 
